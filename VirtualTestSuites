@@ -535,6 +535,7 @@
     "prefix": "no-auto-wpt-origin-isolation",
     "bases": [
       "external/wpt/html/browsers/origin/origin-keyed-agent-clusters",
+      "external/wpt/html/infrastructure/urls/terminology-0",
       "external/wpt/app-history/navigate-event/cross-window"
     ],
     "args": ["--disable-auto-wpt-origin-isolation"]

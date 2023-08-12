@@ -7609,3 +7609,6 @@ crbug.com/1282347 [ Mac ] virtual/clipboard-custom-formats/clipboard/async-clipb
 
 # Sheriff 2022-01-25
 crbug.com/1289992 virtual/document-transition/document-transition/paint-order.html [ Skip ]
+
+crbug.com/1295980 [ Mac ] virtual/fenced-frame-mparch/wpt_internal/fenced_frame/script-focus.https.html [ Pass Timeout ]
+crbug.com/1295980 [ Mac ] virtual/fenced-frame-shadow-dom/wpt_internal/fenced_frame/script-focus.https.html [ Pass Timeout ]

@@ -1,8 +1,8 @@
 [
     {
         "Name": "chromium_third_party_blink_webtests",                   # 上游开源软件名全称
-        "License": "LICENSE.TXT","W3C","MPL-2.0","MPL-1.1","OFL-1.1-no-RFN","LGPLStyleLicense","GPLStyleLicense",    # 上游开源软件中包含的许可证信息
-        "License File": "LICENSE.TXT", "GPL-2.0-with-bison-exception","GPL-3.0+","Khronos License","GPL-3.0+"       # 许可证所在文件路径
+        "License": "LICENSE.TXT","W3C","MPL-2.0","MPL-1.1","OFL-1.1-no-RFN","GPLStyleLicense","Khronos License1","Khronos License2","Khronos License3","Khronos License4","Khronos License5","Khronos License6","Khronos License7","Khronos License8","Khronos License9","Khronos License10","Khronos License11"    # 上游开源软件中包含的许可证信息
+        "License File": "LICENSE.txt"     # 许可证所在文件路径
         "Version Number": "99.0.4844.84",
         "Upstream URL": "https://chromium.googlesource.com/chromium@99.0.4844.84",   # 上游软件包发布地址
         "Description": "第三方软件vulkan-deps/glslang"           # 开源软件功能描述

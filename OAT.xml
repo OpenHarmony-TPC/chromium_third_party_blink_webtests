@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <oatconfig>
+        <licensefile>third_party\Amstelvar\LICENSE</licensefile>
         <policylist>
             <policy name="projectPolicy" desc="">
             <policyitem type="compatibility" name="W3C" path=".*" desc="" />
@@ -8,17 +9,14 @@
             <policyitem type="compatibility" name="OFL-1.1-no-RFN" path=".*" desc="" />
             <policyitem type="compatibility" name="MPL-2.0" path=".*" desc="" />
             <policyitem type="compatibility" name="GPLStyleLicense" path=".*" desc="" />
-            <policyitem type="compatibility" name="Khronos License1" path=".*" desc="" />
-            <policyitem type="compatibility" name="Khronos License2" path=".*" desc="" />
-            <policyitem type="compatibility" name="Khronos License3" path=".*" desc="" />
-            <policyitem type="compatibility" name="Khronos License4" path="http/tests/websocket.*" desc="" />
-            <policyitem type="compatibility" name="Khronos License5" path=".*" desc="" />
-            <policyitem type="compatibility" name="Khronos License6" path="external/wpt/docs/assets.*" desc="" />
-            <policyitem type="compatibility" name="Khronos License7" path="http/tests/devtools/elements/resources.*" desc="" />
-            <policyitem type="compatibility" name="Khronos License8" path=".*" desc="" />
-            <policyitem type="compatibility" name="Khronos License9" path="http/tests/devtools/elements/resources.*" desc="" />
-            <policyitem type="compatibility" name="Khronos License10" path="fast/webgl/resources.*" desc="" />
-            <policyitem type="compatibility" name="Khronos License11" path="external/wpt/html/canvas/tools.*" desc="" />
+            <policyitem type="compatibility" name="CC-PDDC" path=".*" desc="" />
+            <policyitem type="compatibility" name="PngSuite License" path=".*" desc="" />
+            <policyitem type="compatibility" name="CC0-1.0" path=".*" desc="" />
+            <policyitem type="compatibility" name="Khronos License" path=".*" desc="" />
+            <policyitem type="compatibility" name="webressources" path=".*" desc="" />
+            <policyitem type="compatibility" name="Public Domain" path=".*" desc="" />
+            <policyitem type="compatibility" name="OFL-1.1" path=".*" desc="" />
+            <policyitem type="compatibility" name="HTML 5 specification" path=".*" desc="" />
             </policy>
         </policylist>
         <filefilterlist>
@@ -28,85 +26,204 @@
                     desc="" />
                 <filteritem type="filepath" name="external/wpt/encrypted-media/polyfill/edge-persistent-usage-record.js"
                     desc="" />
-                <filteritem type="filepath" name="external/wpt/encrypted-media/scripts.*"
-                    desc="" />
-                <filteritem type="filepath" name="external/wpt/encrypted-media/util.*"
-                    desc="" />
-                <filteritem type="filepath" name=".*README.chromium"
-                    desc="" />
-                <filteritem type="filepath" name="external/wpt/fonts/CSSTest/LICENSE"
-                    desc="" />
-                <filteritem type="filepath" name="third_party/gsubtest/LICENSE.txt"
-                    desc="" />
-                <filteritem type="filepath" name=".*PngSuite.LICENSE"
-                    desc="" />
                 <filteritem type="filepath" name="external/wpt/interfaces/encrypted-media.idl"
                     desc="" />    
                 <filteritem type="filepath" name="external/wpt/css/css-align/resources/alignment-parsing-utils.js"
                     desc="" />
                 <filteritem type="filepath" name="external/wpt/css/css-fonts/support/fonts/gsubtest-lookup3.ufo/fontinfo.plist"
                     desc="" />
-                 <filteritem type="filepath" name="README.OpenSource"
+                <filteritem type="filepath" name="README.OpenSource"
+                    desc="" />
+                <filteritem type="filepath" name=".*gitignore.backup"
+                    desc="" />
+                <filteritem type="filepath" name=".*html"
+                    desc="" />
+                <filteritem type="filepath" name=".*README.chromium"
+                    desc="" />
+                <filteritem type="filepath" name="encrypted-media/scripts.*"
+                    desc="" />
+                <filteritem type="filepath" name="external/wpt/encrypted-media/scripts.*"
+                    desc="" />
+                <filteritem type="filepath" name="external/wpt/encrypted-media/util.*"
                     desc="" />
             </filefilter>
             <filefilter name="defaultFilter">
                 <filteritem type="filepath" name="README.OpenSource"
                     desc="" />
+                <filteritem type="filepath" name=".*png"
+                    desc="" />
+                <filteritem type="filepath" name=".*ttf"
+                    desc="" />
+                <filteritem type="filepath" name=".*jpg"
+                    desc="" />
+                <filteritem type="filepath" name=".*ico"
+                    desc="" />
+                <filteritem type="filepath" name=".*woff"
+                    desc="" />
+                <filteritem type="filepath" name=".*ogv"
+                    desc="" />
+                <filteritem type="filepath" name=".*mp4"
+                    desc="" />
+                <filteritem type="filepath" name=".*webm"
+                    desc="" />
+                <filteritem type="filepath" name=".*sxg"
+                    desc="" />
+                <filteritem type="filepath" name=".*dat"
+                    desc="" />
+                <filteritem type="filepath" name=".*gif"
+                    desc="" />
+                <filteritem type="filepath" name="external.*"
+                    desc="" />
+                <filteritem type="filepath" name="fast.*"
+                    desc="" />
+                <filteritem type="filepath" name="http.*"
+                    desc="" />
+                <filteritem type="filepath" name="images.*"
+                    desc="" />
+                <filteritem type="filepath" name="platform.*"
+                    desc="" />
+                <filteritem type="filepath" name="svg.*"
+                    desc="" />
+                <filteritem type="filepath" name="webaudio.*"
+                    desc="" />
+                <filteritem type="filepath" name="wpt_internal.*"
+                    desc="" />
+                <filteritem type="filepath" name="external.*"
+                    desc="" />
+                <filteritem type="filepath" name="third_party.*"
+                    desc="" />
+                <filteritem type="filepath" name="media.*"
+                    desc="" />
+                <filteritem type="filepath" name="plugins.*"
+                    desc="" />
+                <filteritem type="filepath" name="tables.*"
+                    desc="" />
+                <filteritem type="filepath" name="css3.*"
+                    desc="" />
+                <filteritem type="filepath" name="compositing.*"
+                    desc="" />
+                <filteritem type="filepath" name="dom.*"
+                    desc="" />
+                <filteritem type="filepath" name="resources.*"
+                    desc="" />
             </filefilter>
         </filefilterlist>
         <licensematcherlist>
-        <licensematcher name="Khronos License1" desc="">
+            <licensematcher name="W3C" desc="">
                 <licensetext name="
-                &lt;!doctype html&gt;
+                (Massachusetts Institute of Technology, Institut National de
+                Recherche en Informatique et en Automatique, Keio University).  All 
+                Rights Reserved.  This program is distributed under the W3C's Software
+                Intellectual Property License.  This program is distributed in the 
+                hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+                the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+                PURPOSE.  
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License2" desc="">
+            <licensematcher name="CC-PDDC" desc="">
                 <licensetext name="
-                Copyright (c) 2001-2004 World Wide Web Consortium, 
+                // Any copyright is dedicated to the Public Domain.
+                // http://creativecommons.org/licenses/publicdomain/  
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License3" desc="">
+            <licensematcher name="CC0-1.0" desc="">
                 <licensetext name="
-                Any copyright is dedicated to the Public Domain.
+                // license of original test:
+                // &quot; Any copyright is dedicated to the Public Domain.
+                //   http://creativecommons.org/publicdomain/zero/1.0/ &quot;  
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License4" desc="">
+            <licensematcher name="PngSuite License" desc="">
                 <licensetext name="
-                # Copyright (C) Research In Motion Limited 2011. All rights reserved.
+                Permission to use, copy, modify and distribute these images for any
+                purpose and without fee is hereby granted.
+                (c) Willem van Schaik, 1996, 2011
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License5" desc="">
+            <licensematcher name="Khronos License" desc="">
+                <licensetext name="
+                ** Permission is hereby granted, free of charge, to any person obtaining a
+                ** copy of this software and/or associated documentation files (the
+                ** &quot;Materials&quot;), to deal in the Materials without restriction, including
+                ** without limitation the rights to use, copy, modify, merge, publish,
+                ** distribute, sublicense, and/or sell copies of the Materials, and to
+                ** permit persons to whom the Materials are furnished to do so, subject to
+                ** the following conditions:
+                **
+                ** The above copyright notice and this permission notice shall be included
+                ** in all copies or substantial portions of the Materials.
+                **
+                ** THE MATERIALS ARE PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+                ** EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+                ** MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+                ** IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+                ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+                ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+                ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
+            " desc="" />
+            </licensematcher>
+            <licensematcher name="MIT" desc="">
+                <licensetext name="
+                * &quot;Fork me on GitHub&quot; CSS ribbon v0.2.2 | MIT License
+                * https://github.com/simonwhitaker/github-fork-ribbon-css
+            " desc="" />
+            </licensematcher>
+            <licensematcher name="MIT" desc="">
                 <licensetext name="
                 /*! jQuery v1.11.1 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License6" desc="">
+            <licensematcher name="webressources" desc="">
                 <licensetext name="
-                 * &quot;Fork me on GitHub&quot; CSS ribbon v0.2.2 | MIT License
-                * https://github.com/simonwhitaker/github-fork-ribbon-css
+                /*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License7" desc="">
+            <licensematcher name="webressources" desc="">
                 <licensetext name="
-                 /*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
+                /*! jQuery v2.1.4 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License8" desc="">
+            <licensematcher name="BSD-2-Clause" desc="">
                 <licensetext name="
-                 ** Copyright (c) 2015 The Khronos Group Inc.
+                # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+                # following conditions are met:
+                #
+                # 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+                # disclaimer.
+                #
+                # 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+                # following disclaimer in the documentation and/or other materials provided with the distribution.
+                #
+                # THIS SOFTWARE IS PROVIDED BY APPLE INC. AND ITS CONTRIBUTORS “AS IS” AND ANY EXPRESS OR
+                # IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+                # MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+                # APPLE INC. OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                # EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+                # SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+                # HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+                # TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License9" desc="">
+            <licensematcher name="Public Domain" desc="">
                 <licensetext name="
-                 /*! jQuery v2.1.4 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
+                &quot;The person who associated a work with this deed has dedicated the work to the
+                public domain by waiving all of his or her rights to the work worldwide under
+                copyright law, including all related and neighboring rights, to the extent
+                allowed by law.
+
+                You can copy, modify, distribute and perform the work, even for commercial
+                purposes, all without asking permission. See Other Information below.&quot;
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License10" desc="">
+            <licensematcher name="OFL-1.1" desc="">
                 <licensetext name="
-                ** Copyright (c) 2012 The Khronos Group Inc.
+                This Font Software is licensed under the SIL Open Font License, Version 1.1.
+                This license is copied below, and is also available with a FAQ at:
+                http://scripts.sil.org/OFL
             " desc="" />
             </licensematcher>
-            <licensematcher name="Khronos License11" desc="">
+            <licensematcher name="HTML 5 specification License" desc="">
                 <licensetext name="
                 # Extracts from https://html.spec.whatwg.org/
                 #

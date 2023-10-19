@@ -76,8 +76,6 @@ used to filter file path.
                 <policyitem type="compatibility" name="CC0-1.0" path="virtual/text-antialias/font-features/resources/.*" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="CC0-1.0" path="third_party/gsubtest/.*" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/eval/script-tests/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="webressources" path="http/tests/devtools/elements/resources/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="webressources" path="http/tests/devtools/sources/debugger/resources/jquery-1.11.1.min.js" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="PngSuite License" path="images/png-suite/PngSuite.LICENSE" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="MIT" path="external/wpt/docs/assets/gh-fork-ribbon.scss" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="OFL-1.1" path="external/wpt/fonts/CSSTest/LICENSE" desc="经法务确认为宽松型许可证" />
@@ -124,9 +122,9 @@ used to filter file path.
                 <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
                     desc="chromium原生文件无license" /> 
                 <filteritem type="filepath" name="http/tests/devtools/elements/resources/.*"
-                    desc="经确认该类文件不会使用" /> 
+                    desc="经确认,该文件不会使用" /> 
                 <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
-                    desc="经确认该类文件不会使用" /> 
+                    desc="经确认,该文件不会使用" /> 
             </filefilter>
 
             <filefilter name="defaultFilter">

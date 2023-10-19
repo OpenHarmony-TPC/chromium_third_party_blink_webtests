@@ -123,6 +123,10 @@ used to filter file path.
                     desc="chromium原生文件无license" />
                 <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
                     desc="chromium原生文件无license" /> 
+                <filteritem type="filepath" name="http/tests/devtools/elements/resources/.*"
+                    desc="经确认该类文件不会使用" /> 
+                <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
+                    desc="经确认该类文件不会使用" /> 
             </filefilter>
 
             <filefilter name="defaultFilter">

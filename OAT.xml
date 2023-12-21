@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (c) 2021 Huawei Device Co., Ltd.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+    This is the configuration file template for OpenHarmony OSS Audit Tool, please copy it to your
+project root dir and modify it refer to OpenHarmony/tools_oat/README.
+    All configurations in this file will be merged to OAT-Default.xml, if you have any questions or
+concerns, please create issue in OpenHarmony/tools_oat and @jalenchen or chenyaxun.
+
+    licensefile:
+    1.If the project don't have "LICENSE" in root dir, please define all the license files in this
+project in , OAT will check license files according to this rule.
+
+    policylist:
+    1. policy: If the OAT-Default.xml policies do not meet your requirements, please add policies here.
+    2. policyitem: The fields type, name, path, desc is required, and the fields rule, group,
+filefilter is optional,the default value is:
+    <policyitem type="" name="" path="" desc="" rule="may" group="defaultGroup"
+filefilter="defaultPolicyFilter"/>
+    3. policyitem type:
+        "compatibility" is used to check license compatibility in the specified path;
+        "license" is used to check source license header in the specified path;
+        "copyright" is used to check source copyright header in the specified path;
+        "import" is used to check source dependency in the specified path, such as import ... ,include ...
+        "filetype" is used to check file type in the specified path, supported file types: archive, binary
+        "filename" is used to check whether the specified file exists in the specified path(projectroot
+means the root dir of the project), supported file names: LICENSE, README, README.OpenSource
+    4. policyitem name: This field is used for define the license, copyright, "*" means match all, the
+"!" prefix means could not match this value. For example, "!GPL" means can not use GPL license.
+    5. policyitem path: This field is used for define the source file scope to apply this policyitem,
+the "!" prefix means exclude the files. For example, "!.*/lib/.*" means files in lib dir will be
+exclude while process this policyitem.
+    6. policyitem rule and group: These two fields are used together to merge policy results. "may"
+policyitems in the same group means any one in this group passed, the result will be passed.
+    7. policyitem filefilter: Used to bind filefilter which define filter rules.
+    7. policyitem desc: Used to describe the reason of this policy item, committers will check this
+while merging the code.
+    8. filefilter: Filter rules, the type filename is used to filter file name, the type filepath is
+used to filter file path.
+
+    Note:If the text contains special characters, please escape them according to the following rules:
+    " == &quot;
+    & == &amp;
+    ' == &apos;
+    < == &lt;
+    > == &gt;
+-->
+
+<configuration>
+    <oatconfig>
+    <licensefile>third_party/Amstelvar/LICENSE</licensefile>
+         <policylist>
+            <policy name="projectPolicy" desc="">
+                <policyitem type="compatibility" name="W3C" path="dom/legacy_dom_conformance/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="OFL-1.1" path="dom/legacy_dom_conformance/xhtml/level1/core/resources/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="W3C-19980720" path="dom/legacy_dom_conformance/xhtml/level3/core/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC0-1.0" path="external/wpt/css/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC0-1.0" path="css3/flexbox/mozilla/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="OFL-1.1-no-RFN" path="external/wpt/fonts/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="OFL-1.1-no-RFN" path=".*LICENSE.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="W3CDocLicense" path="external/wpt/css/css-color/LICENSE*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/strict/script-tests/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC0-1.0" path="storage/indexeddb/mozilla/resources/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC0-1.0" path="virtual/text-antialias/font-features/resources/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC0-1.0" path="third_party/gsubtest/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/eval/script-tests/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="PngSuite License" path="images/png-suite/PngSuite.LICENSE" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="MIT" path="external/wpt/docs/assets/gh-fork-ribbon.scss" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="OFL-1.1" path="external/wpt/fonts/CSSTest/LICENSE" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/resources/mozilla-es5-shell.js" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="Generic Bare Warranty Disclaimer" path="fast/webgl/resources/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="HTML 5 specification License" path="external/wpt/html/canvas/tools/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla/marvin/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="MPL-1.1" path="fast/js/mozilla/resources/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="MPL-2.0" path="external/wpt/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla_expected_failures/marvin/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="MPL-1.1" path="fast/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPLStyleLicense" path="jquery/resources/src/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPLStyleLicense" path="svg/carto.net/resources/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="GPLStyleLicense" path="jquery/resources/test/qunit/qunit/qunit.js" desc="经法务确认,涉及文件在render下进行了隔离" />
+                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla_expected_failures/bugs/bug12012.js" desc="经法务确认,涉及文件在render下进行了隔离" />
+            </policy>
+        </policylist>
+        <filefilterlist>
+            <filefilter name="defaultPolicyFilter"
+                desc="Filters for compatibility,license header policies">
+                <filteritem type="filepath" name="external/wpt/css/CSS2/tables/.*"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="dom/legacy_dom_conformance/xhtml/.*"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="external/wpt/encrypted-media/.*"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="external/wpt/css/css-fonts/support/fonts/gsubtest-lookup3.ufo/fontinfo.plist"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filename" name=".*chromium"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="external/wpt/css/.*"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="/http/tests/websocket/.*"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="third_party/NotoMono-hintedLocalizedFamilyName/README.chromium"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="external/wpt/interfaces/encrypted-media.idl"
+                    desc="chromium原生文件无license" /> 
+                <filteritem type="filepath" name="media/encrypted-media/encrypted-media-clear-key-invalid-license.html"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="http/tests/websocket/.*"
+                    desc="chromium原生文件无license" />
+                <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
+                    desc="chromium原生文件无license" /> 
+                <filteritem type="filepath" name="http/tests/devtools/elements/resources/.*"
+                    desc="经确认,该文件不会使用" /> 
+                <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
+                    desc="经确认,该文件不会使用" /> 
+            </filefilter>
+
+            <filefilter name="defaultFilter">
+                <filteritem type="filepath" name="README.OpenSource" desc="Filter readme.opensource files" />
+            </filefilter>
+            <filefilter name="binaryFileTypePolicyFilter">
+                <filteritem type="filename" name="*.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.gif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ttf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ico"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.jpg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.woff"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ogv"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.mp4"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.webm"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.sxg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.swf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.otf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.oga"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ogg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.bmp"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.wasm"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.har"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.wbn"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.webp"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.dat"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.wbn-wrong-mime-type"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.avif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.cur"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.woff2"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.mp3"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.adts"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.wav"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.jxl"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.flac"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.vtt"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.pdf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.xls"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.jpeg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ICM"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.icc"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.xlsx"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.wbn-without-nosniff"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.svgz"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ttc"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.mov"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.tiff"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.404"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.m4a"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.xhtml"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.zip"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.annexb"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.bin"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.aif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.h264"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.ani"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.sitx"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.cbor"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.asis"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.pem"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*.opus"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="svg/hixie/intrinsic/resources/.*"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="fast/files/resources/binary-file"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filename" name="*vh40"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="webaudio/codec-tests/opus/opus-test.opus"
+                    desc="chromium原生二进制文件，不会使用" />
+            </filefilter>
+        </filefilterlist>
+        <licensematcherlist>
+            <licensematcher name="OFL-1.1" desc="">
+                <licensetext name="
+                This Font Software is licensed under the SIL Open Font License, Version 1.1.
+                This license is copied below, and is also available with a FAQ at:
+                http://scripts.sil.org/OFL
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="W3C-19980720" desc="">
+                <licensetext name="
+                (Massachusetts Institute of Technology, Institut National de
+                Recherche en Informatique et en Automatique, Keio University).  All 
+                Rights Reserved.  This program is distributed under the W3C's Software
+                Intellectual Property License.  This program is distributed in the 
+                hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+                the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+                PURPOSE.  
+
+                See W3C License http://www.w3.org/Consortium/Legal/ for more details.
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="CC0-1.0" desc="">
+                <licensetext name="
+                http://creativecommons.org/publicdomain/zero/1.0/
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="CC-PDDC" desc="">
+                <licensetext name="
+                // http://creativecommons.org/licenses/publicdomain/
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="webressources" desc="">
+                <licensetext name="
+                jQuery Foundation, Inc. | jquery.org/license */
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="PngSuite License" desc="">
+                <licensetext name="
+                Permission to use, copy, modify and distribute these images for any
+                purpose and without fee is hereby granted.
+
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="MIT" desc="">
+                <licensetext name="
+                 * &quot;Fork me on GitHub&quot; CSS ribbon v0.2.2 | MIT License
+                 * https://github.com/simonwhitaker/github-fork-ribbon-css
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="Generic Bare Warranty Disclaimer" desc="">
+                <licensetext name="
+                ** THE MATERIALS ARE PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+                ** EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+                ** MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+                ** IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+                ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+                ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+                ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
+                " desc="" />
+            </licensematcher>
+            <licensematcher name="HTML 5 specification License" desc="">
+                <licensetext name="
+                # You are granted a license to use, reproduce and create derivative works of this document.
+                " desc="" />
+            </licensematcher>
+        </licensematcherlist>
+    </oatconfig>
+</configuration>

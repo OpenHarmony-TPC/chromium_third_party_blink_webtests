@@ -64,39 +64,46 @@ used to filter file path.
          <policylist>
             <policy name="projectPolicy" desc="">
                 <policyitem type="compatibility" name="W3C" path="dom/legacy_dom_conformance/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="OFL-1.1" path="dom/legacy_dom_conformance/xhtml/level1/core/resources/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="W3C-19980720" path="dom/legacy_dom_conformance/xhtml/level3/core/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC0-1.0" path="external/wpt/css/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC0-1.0" path="css3/flexbox/mozilla/.*" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="OFL-1.1-no-RFN" path="external/wpt/fonts/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="OFL-1.1-no-RFN" path=".*LICENSE.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="W3CDocLicense" path="external/wpt/css/css-color/LICENSE*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/strict/script-tests/.*" desc="经法务确认为宽松型许可证" />
                 <policyitem type="compatibility" name="CC0-1.0" path="storage/indexeddb/mozilla/resources/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC0-1.0" path="virtual/text-antialias/font-features/resources/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC0-1.0" path="third_party/gsubtest/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/eval/script-tests/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="PngSuite License" path="images/png-suite/PngSuite.LICENSE" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="MIT" path="external/wpt/docs/assets/gh-fork-ribbon.scss" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="OFL-1.1" path="external/wpt/fonts/CSSTest/LICENSE" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="CC-PDDC" path="fast/js/mozilla/resources/mozilla-es5-shell.js" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="Generic Bare Warranty Disclaimer" path="fast/webgl/resources/.*" desc="经法务确认为宽松型许可证" />
+                <policyitem type="compatibility" name="OFL-1.1" path="external/wpt/fonts/CSSTest/LICENSE" desc="该文件的许可证为OFL-1.1" />
                 <policyitem type="compatibility" name="HTML 5 specification License" path="external/wpt/html/canvas/tools/.*" desc="经法务确认为宽松型许可证" />
-                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla/marvin/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="MPL-1.1" path="fast/js/mozilla/resources/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="MPL-2.0" path="external/wpt/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla_expected_failures/marvin/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="MPL-1.1" path="fast/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="GPLStyleLicense" path="jquery/resources/src/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="GPLStyleLicense" path="svg/carto.net/resources/.*" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="GPLStyleLicense" path="jquery/resources/test/qunit/qunit/qunit.js" desc="经法务确认,涉及文件在render下进行了隔离" />
-                <policyitem type="compatibility" name="MPL-1.1" path="tables/mozilla_expected_failures/bugs/bug12012.js" desc="经法务确认,涉及文件在render下进行了隔离" />
             </policy>
         </policylist>
         <filefilterlist>
+            <filefilter name="defaultFilter">
+                <filteritem type="filepath" name=".*README.chromium" desc="chromium的开源软件元数据文件" />
+                <filteritem type="filepath" name="external/wpt/common/third_party/reftest-analyzer.xhtml" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="external/wpt/mathml/tools/operator-dictionary.xsl" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="jquery/resources/src/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="jquery/resources/test/qunit/qunit/qunit.js" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="external/wpt/html/semantics/embedded-content/the-iframe-element/stash.py" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="fast/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="http/tests/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="images/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="media/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="tables/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="svg/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="html5lib/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="webaudio/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="third_party/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="compositing/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="virtual/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="resources/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="paint/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="inspector-protocol/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="css1/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="css2.1/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="css3/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="editing/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="accessibility/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="plugins/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="printing/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="transforms/.*" desc="经确认，该文件不会使用" />
+                <filteritem type="filepath" name="ietestcenter/.*" desc="经确认，该文件不会使用" />
+            </filefilter>
             <filefilter name="defaultPolicyFilter"
-                desc="Filters for compatibility,license header policies">
+                    desc="Filters for compatibility,license header policies">
                 <filteritem type="filepath" name="external/wpt/css/CSS2/tables/.*"
                     desc="chromium原生文件无license" />
                 <filteritem type="filepath" name="dom/legacy_dom_conformance/xhtml/.*"
@@ -105,149 +112,281 @@ used to filter file path.
                     desc="chromium原生文件无license" />
                 <filteritem type="filepath" name="external/wpt/css/css-fonts/support/fonts/gsubtest-lookup3.ufo/fontinfo.plist"
                     desc="chromium原生文件无license" />
-                <filteritem type="filename" name=".*chromium"
-                    desc="chromium原生文件无license" />
                 <filteritem type="filepath" name="external/wpt/css/.*"
-                    desc="chromium原生文件无license" />
-                <filteritem type="filepath" name="/http/tests/websocket/.*"
-                    desc="chromium原生文件无license" />
-                <filteritem type="filepath" name="third_party/NotoMono-hintedLocalizedFamilyName/README.chromium"
                     desc="chromium原生文件无license" />
                 <filteritem type="filepath" name="external/wpt/interfaces/encrypted-media.idl"
                     desc="chromium原生文件无license" /> 
-                <filteritem type="filepath" name="media/encrypted-media/encrypted-media-clear-key-invalid-license.html"
-                    desc="chromium原生文件无license" />
-                <filteritem type="filepath" name="http/tests/websocket/.*"
-                    desc="chromium原生文件无license" />
-                <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
-                    desc="chromium原生文件无license" /> 
-                <filteritem type="filepath" name="http/tests/devtools/elements/resources/.*"
-                    desc="经确认,该文件不会使用" /> 
-                <filteritem type="filepath" name="svg/custom/invisible-text-after-scrolling.xhtml"
-                    desc="经确认,该文件不会使用" /> 
-            </filefilter>
-
-            <filefilter name="defaultFilter">
-                <filteritem type="filepath" name="README.OpenSource" desc="Filter readme.opensource files" />
             </filefilter>
             <filefilter name="binaryFileTypePolicyFilter">
-                <filteritem type="filename" name="*.png"
+                <filteritem type="filepath" name="external/wpt/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.gif"
+                <filteritem type="filepath" name="dark-mode/images/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ttf"
+                <filteritem type="filepath" name="dom/legacy_dom_conformance/html/level2/html/right.png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ico"
+                <filteritem type="filepath" name="flag-specific/disable-layout-ng/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.jpg"
+                <filteritem type="filepath" name="flag-specific/highdpi/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.woff"
+                <filteritem type="filepath" name="flag-specific/skia-gl/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ogv"
+                <filteritem type="filepath" name="flag-specific/skia-vulkan-native/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.mp4"
+                <filteritem type="filepath" name="flag-specific/skia-vulkan-swiftshader/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.webm"
+                <filteritem type="filepath" name="box-shadow/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.sxg"
+                <filteritem type="filepath" name="flag-specific/skia-gl/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.swf"
+                <filteritem type="filepath" name="flag-specific/skia-vulkan-native/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.otf"
+                <filteritem type="filepath" name="flag-specific/skia-vulkan-swiftshader/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.oga"
+                <filteritem type="filepath" name="external/wpt/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ogg"
+                <filteritem type="filepath" name="mhtml/invalid-bad-boundary2-expected.png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.bmp"
+                <filteritem type="filepath" name="mhtml/resources/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.wasm"
+                <filteritem type="filepath" name="platform/fuchsia/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.har"
+                <filteritem type="filepath" name="platform/linux/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.wbn"
+                <filteritem type="filepath" name="platform/mac/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.webp"
+                <filteritem type="filepath" name="platform/mac-mac10.12/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.dat"
+                <filteritem type="filepath" name="platform/mac-mac10.13/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.wbn-wrong-mime-type"
+                <filteritem type="filepath" name="platform/mac-mac10.14/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.avif"
+                <filteritem type="filepath" name="platform/mac-mac10.15/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.cur"
+                <filteritem type="filepath" name="platform/mac-mac11-arm64/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.woff2"
+                <filteritem type="filepath" name="win/compositing/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.mp3"
+                <filteritem type="filepath" name="win/css1/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.adts"
+                <filteritem type="filepath" name="win/css2.1/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.wav"
+                <filteritem type="filepath" name="win/css3/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.jxl"
+                <filteritem type="filepath" name="win/custom-elements/form-validation-bubble-appearance-expected.png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.flac"
+                <filteritem type="filepath" name="win/editing/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.vtt"
+                <filteritem type="filepath" name="win/external/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.pdf"
+                <filteritem type="filepath" name="win/fast/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.xls"
+                <filteritem type="filepath" name="win/fragmentation/outline-crossing-columns-expected.png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.jpeg"
+                <filteritem type="filepath" name="win/html/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ICM"
+                <filteritem type="filepath" name="win/http/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.icc"
+                <filteritem type="filepath" name="win/ietestcenter/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.xlsx"
+                <filteritem type="filepath" name="win/images/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.wbn-without-nosniff"
+                <filteritem type="filepath" name="win/media/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.svgz"
+                <filteritem type="filepath" name="win/paint/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ttc"
+                <filteritem type="filepath" name="win/plugins/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.mov"
+                <filteritem type="filepath" name="win/printing/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.tiff"
+                <filteritem type="filepath" name="win/scrollbars/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.404"
+                <filteritem type="filepath" name="win/std-switch/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.m4a"
+                <filteritem type="filepath" name="win/svg/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.xhtml"
+                <filteritem type="filepath" name="win/tables/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.zip"
+                <filteritem type="filepath" name="win/transforms/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.annexb"
+                <filteritem type="filepath" name="win/virtual/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.bin"
+                <filteritem type="filepath" name="win7/css2.1/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.aif"
+                <filteritem type="filepath" name="win7/fast/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.h264"
+                <filteritem type="filepath" name="win7/svg/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.ani"
+                <filteritem type="filepath" name="win7/transforms/2d/hindi-rotated-expected.png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.sitx"
+                <filteritem type="filepath" name="win7/virtual/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.cbor"
+                <filteritem type="filepath" name="animations/resources/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.asis"
+                <filteritem type="filepath" name="mhtml/invalid-bad-boundary2-expected.png.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.pem"
+                <filteritem type="filepath" name="mhtml/resources/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*.opus"
+                <filteritem type="filepath" name="platform/fuchsia/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filepath" name="svg/hixie/intrinsic/resources/.*"
+                <filteritem type="filepath" name="platform/linux/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filepath" name="fast/files/resources/binary-file"
+                <filteritem type="filepath" name="platform/mac/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filename" name="*vh40"
+                <filteritem type="filepath" name="dom/legacy_dom_conformance/.*png"
                     desc="chromium原生二进制文件，不会使用" />
-                <filteritem type="filepath" name="webaudio/codec-tests/opus/opus-test.opus"
+                <filteritem type="filepath" name="platform/win/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="platform/win7/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="scrollbars/resources/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="transitions/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="animations/skew-notsequential-compositor-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="fast/js/missing-style-end-tag-js-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="dark-mode/colors/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="fragmentation/column-fill-auto-child-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="scrollbars/rtl.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="animations/timing/animation-duration-infinite-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="fragmentation/transformed-clip-before-second-column-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="images/mask-box-image-crash-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="media/color.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="mhtml/data-uri-font-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="loader/resources/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="media/controls/video-controls-with-cast-rendering-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="media/resources/.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="mhtml/malformed_mhtml_no_footer-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="aint/clipath/clip-path-with-background-and-box-behind-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="scrollbars/custom.*png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="scrollbars/overlay-scrollbars-within-overflow-scroll-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="wpt_internal/fenced_frame/resources/csp.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*otf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*ttf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*jpg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*ico"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*ogv"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*mp4"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*woff"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*webm"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*mp3"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*pem"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*sxg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*wbn"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*webp"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*woff2"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*oga"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*cbor"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*wasm"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*avif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*gif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*bmp"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*xhtml"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*har"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*ani"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*bmp"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*har"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*asis"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*wav"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*cur"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*ttc"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*swf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*flac"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*zip"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*mov"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*dat"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*pdf"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*ogg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*adts"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*vtt"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*icc"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*annexb"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="external/wpt/.*svgz"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="transitions/resources/Aurora.jpg"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="clipboard/null-image.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="mhtml/image_document-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="loader/resources/image.gif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="permissionclient/resources/boston.gif"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="scrollbars/auto-scrollbar-fades-out-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="typedcssom/computedstyle/resources/1x1-green.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="typedcssom/resources/1x1-green.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="dom/legacy_dom_conformance/xhtml/level3/core/documentgetxmlencoding03.xhtml"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="flag-specific/disable-features=UseSkiaRenderer/compositing/lots-of-img-layers-expected.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="wpt_internal/webcodecs/annexb.h264"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="wpt_internal/prerender/resources/bear-av1-opus.mp4"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="wpt_internal/resource-timing/resources/blue-cacheable.png"
+                    desc="chromium原生二进制文件，不会使用" />
+                <filteritem type="filepath" name="platform/mac-mac11-arm64/.*wav"
                     desc="chromium原生二进制文件，不会使用" />
             </filefilter>
         </filefilterlist>
@@ -259,56 +398,15 @@ used to filter file path.
                 http://scripts.sil.org/OFL
                 " desc="" />
             </licensematcher>
-            <licensematcher name="W3C-19980720" desc="">
-                <licensetext name="
-                (Massachusetts Institute of Technology, Institut National de
-                Recherche en Informatique et en Automatique, Keio University).  All 
-                Rights Reserved.  This program is distributed under the W3C's Software
-                Intellectual Property License.  This program is distributed in the 
-                hope that it will be useful, but WITHOUT ANY WARRANTY; without even
-                the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
-                PURPOSE.  
-
-                See W3C License http://www.w3.org/Consortium/Legal/ for more details.
-                " desc="" />
-            </licensematcher>
             <licensematcher name="CC0-1.0" desc="">
                 <licensetext name="
                 http://creativecommons.org/publicdomain/zero/1.0/
-                " desc="" />
-            </licensematcher>
-            <licensematcher name="CC-PDDC" desc="">
-                <licensetext name="
-                // http://creativecommons.org/licenses/publicdomain/
-                " desc="" />
-            </licensematcher>
-            <licensematcher name="webressources" desc="">
-                <licensetext name="
-                jQuery Foundation, Inc. | jquery.org/license */
-                " desc="" />
-            </licensematcher>
-            <licensematcher name="PngSuite License" desc="">
-                <licensetext name="
-                Permission to use, copy, modify and distribute these images for any
-                purpose and without fee is hereby granted.
-
                 " desc="" />
             </licensematcher>
             <licensematcher name="MIT" desc="">
                 <licensetext name="
                  * &quot;Fork me on GitHub&quot; CSS ribbon v0.2.2 | MIT License
                  * https://github.com/simonwhitaker/github-fork-ribbon-css
-                " desc="" />
-            </licensematcher>
-            <licensematcher name="Generic Bare Warranty Disclaimer" desc="">
-                <licensetext name="
-                ** THE MATERIALS ARE PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
-                ** EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-                ** MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-                ** IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-                ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-                ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-                ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
                 " desc="" />
             </licensematcher>
             <licensematcher name="HTML 5 specification License" desc="">

@@ -142,10 +142,10 @@ promise_test(async t => {
   bidi.writable.getWriter().write(new TextEncoder().encode('some data'));
   const reader = bidi.readable.getReader();
   await reader.closed.catch(t.step_func(
-      e => assert_true(e instanceof WebTransportError)));
+    e => assert_true(e instanceof WebTransportError)));
 
   // The WebTransport session will already be closed.
-  const {reason, closeCode} = await wt.closed;
+  const { reason, closeCode } = await wt.closed;
 
   assert_equals(reason, '', 'reason should be default');
   assert_equals(closeCode, 0, 'closeCode should be default');

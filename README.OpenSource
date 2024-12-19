@@ -5,7 +5,7 @@
         "License File": "third_party/Amstelvar/LICENSE",
         "Version Number": "99.0.4844.84",
         "Owner": "liujixin@huawei.com",
-        "Upstream URL": "https://chromium.googlesource.com/chromium@99.0.4844.84",
+        "Upstream URL": "https://chromium.googlesource.com/chromium/src/third_party/blink/web_tests@99.0.4844.84",
         "Description": "blink是浏览器Chromium使用的渲染引擎，web测试仓"
     }
 ]

@@ -1,4 +1,4 @@
-(async function(testRunner) {
+(async function(/** @type {import('test_runner').TestRunner} */ testRunner) {
   const {session, dp} =
       await testRunner.startBlank('Tests the data of user marks trace events');
 
@@ -29,7 +29,7 @@
   const consoleTimeEvents =
       allEvents.filter(event => event.name === 'console time');
 
-  const performanceMark = tracingHelper.findEvent('startMark', Phase.MARK);
+  const performanceMark = tracingHelper.findEvent('startMark', Phase.INSTANT);
   const userTimings = allEvents.filter(event => event.name === 'user timing');
 
   const timerRemove = tracingHelper.findEvent('TimerRemove', Phase.INSTANT);
@@ -76,11 +76,11 @@
   testRunner.log('Got a performance mark event:');
   tracingHelper.logEventShape(performanceMark);
 
-  testRunner.log('Got user timings events:');
+  testRunner.log('Got performance measure event:');
   tracingHelper.logEventShape(userTimings[0]);
   testRunner.log(`Phase of begin event: ${userTimings[0].ph}`);
   testRunner.log(`Phase of end event: ${userTimings[1].ph}`);
-  if (userTimings[0].id === userTimings[1].id) {
+  if (userTimings[0].id2.local === userTimings[1].id2.local) {
     testRunner.log('user timing event ids are equal.');
   }
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<title>
+  Drawing to an offscreen canvas via BitmapRenderer should track the taint on
+  the canvas
+</title>
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<script src="/common/get-host-info.sub.js"></script>
+<body>
+</body>
+<script>
+promise_test(async () => {
+  const img = document.createElement('img');
+  img.src = get_host_info().HTTPS_REMOTE_ORIGIN + '/images/yellow.png';
+  await new Promise(resolve => img.onload = resolve);
+
+  const placeholder = document.createElement('canvas');
+  placeholder.width = 1;
+  const offscreen = placeholder.transferControlToOffscreen();
+  const offscreenCtx = offscreen.getContext('bitmaprenderer');
+  const imageBitmap = await createImageBitmap(img);
+
+  // Resize the offscreen canvas, so that we could use the placeholder width
+  // as a proxy to detect when the frame has propagated.
+  offscreen.width = img.width;
+  offscreenCtx.transferFromImageBitmap(imageBitmap);
+
+  // Wait for the frame to propagate.
+  while (placeholder.width != img.width) {
+    await new Promise(resolve => requestAnimationFrame(resolve));
+  }
+  assert_throws_dom(
+    'SecurityError',
+    () => placeholder.toDataURL(),
+    'The canvas was tainted so it should throw a SecurityError',
+  );
+});
+</script>

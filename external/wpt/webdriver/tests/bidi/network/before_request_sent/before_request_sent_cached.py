@@ -105,7 +105,9 @@ async def test_page_with_cached_link_stylesheet(
     )
 
     # Reload the page.
-    await bidi_session.browsing_context.reload(context=top_context["context"])
+    await bidi_session.browsing_context.reload(
+        context=top_context["context"], wait="complete"
+    )
 
     # Expect two events after reload, for the document and the stylesheet.
     wait = AsyncPoll(bidi_session, timeout=2)
@@ -172,7 +174,9 @@ async def test_page_with_cached_import_stylesheet(
     )
 
     # Reload the page.
-    await bidi_session.browsing_context.reload(context=top_context["context"])
+    await bidi_session.browsing_context.reload(
+        context=top_context["context"], wait="complete"
+    )
 
     # Expect two events after reload, for the document and the stylesheet.
     wait = AsyncPoll(bidi_session, timeout=2)
@@ -264,7 +268,9 @@ async def test_page_with_cached_duplicated_stylesheets(
     )
 
     # Reload the page.
-    await bidi_session.browsing_context.reload(context=top_context["context"])
+    await bidi_session.browsing_context.reload(
+        context=top_context["context"], wait="complete"
+    )
 
     # Expect three events after reload, for the document and the 2 stylesheets.
     wait = AsyncPoll(bidi_session, timeout=2)
@@ -338,7 +344,9 @@ async def test_page_with_cached_script_javascript(
     )
 
     # Reload the page.
-    await bidi_session.browsing_context.reload(context=top_context["context"])
+    await bidi_session.browsing_context.reload(
+        context=top_context["context"], wait="complete"
+    )
 
     # Expect two events, one for the document and one for the javascript file.
     wait = AsyncPoll(bidi_session, timeout=2)
@@ -370,10 +378,12 @@ async def test_page_with_cached_script_javascript(
         wait="complete",
     )
 
-    # Expect three events, one for the document and two for script javascript files.
+    # Expect two or three events, one for the document and the rest for javascript files.
+    # If the browser uses memory caching there may be only single request for the javascript files,
+    # see issue https://github.com/whatwg/html/issues/6110.
     wait = AsyncPoll(bidi_session, timeout=2)
-    await wait.until(lambda _: len(events) >= 7)
-    assert len(events) == 7
+    await wait.until(lambda _: len(events) >= 6)
+    assert len(events) >= 6
 
     # Assert only cached events after reload.
     cached_events = events[4:]
@@ -386,14 +396,15 @@ async def test_page_with_cached_script_javascript(
         cached_events[1],
         expected_request={"method": "GET", "url": cached_script_js_url},
     )
-    assert_before_request_sent_event(
-        cached_events[2],
-        expected_request={"method": "GET", "url": cached_script_js_url},
-    )
+    if len(events) > 6:
+        assert_before_request_sent_event(
+            cached_events[2],
+            expected_request={"method": "GET", "url": cached_script_js_url},
+        )
 
 
 @pytest.mark.asyncio
-async def tst_page_with_cached_javascript_module(
+async def test_page_with_cached_javascript_module(
     bidi_session,
     url,
     inline,
@@ -443,7 +454,9 @@ async def tst_page_with_cached_javascript_module(
     )
 
     # Reload the page.
-    await bidi_session.browsing_context.reload(context=top_context["context"])
+    await bidi_session.browsing_context.reload(
+        context=top_context["context"], wait="complete"
+    )
 
     # Expect two events, one for the document and one for the javascript module.
     wait = AsyncPoll(bidi_session, timeout=2)
@@ -545,7 +558,9 @@ async def test_page_with_cached_image(
     )
 
     # Reload the page.
-    await bidi_session.browsing_context.reload(context=top_context["context"])
+    await bidi_session.browsing_context.reload(
+        context=top_context["context"], wait="complete"
+    )
 
     # Expect two events, one for the document and one for the image.
     wait = AsyncPoll(bidi_session, timeout=2)

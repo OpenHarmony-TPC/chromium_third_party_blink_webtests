@@ -1,5 +1,5 @@
 // META: title=test WebNN API tensor operations
-// META: global=window,dedicatedworker
+// META: global=window,worker
 // META: variant=?cpu
 // META: variant=?gpu
 // META: variant=?npu
@@ -129,6 +129,138 @@ const testCreateTensorFails = (testName, tensorDescriptor) => {
 };
 
 /**
+ * WebNN create constant tensor test.
+ * @param {String} testName - The name of the test operation.
+ * @param {MLOperandDescriptor} descriptor - The intended operand specs.
+ */
+const testCreateConstantTensor = (testName, descriptor) => {
+  let mlContext;
+  let isConstantTensorSupported = false;
+  promise_setup(async () => {
+    try {
+      mlContext = await navigator.ml.createContext(contextOptions);
+    } catch (error) {
+      throw new AssertionError(
+          `Unable to create context for ${variant} variant. ${error}`);
+    }
+
+    // Check if WebNN has constant tensor support.
+    try {
+      await mlContext.createConstantTensor(
+          {
+            dataType: 'float32',
+            shape: [1],
+          },
+          new Float32Array([0xAA]));
+      isConstantTensorSupported = true;
+    } catch (error) {
+      if (error.name !== 'NotSupportedError') {
+        throw error;
+      }
+    }
+  });
+
+  promise_test(async t => {
+    if (!isConstantTensorSupported) {
+      return;
+    }
+
+    const inputData =
+        new TypedArrayDict[descriptor.dataType](sizeOfShape(descriptor.shape))
+            .fill(0xAA);
+    if (!mlContext.opSupportLimits().constant.dataTypes.includes(
+            descriptor.dataType)) {
+      await promise_rejects_js(
+          t, TypeError, mlContext.createConstantTensor(descriptor, inputData));
+      return;
+    }
+
+    const mlTensor =
+        await mlContext.createConstantTensor(descriptor, inputData);
+    assert_true(mlTensor.constant, 'constant tensors should be constant.');
+    assert_false(mlTensor.readable, 'constant tensors should not be readable.');
+    assert_false(mlTensor.writable, 'constant tensors should not be writable.');
+  }, `${testName} / ${descriptor.dataType}`);
+
+  promise_test(async t => {
+    if (!isConstantTensorSupported) {
+      return;
+    }
+
+    try {
+      const inputDataTooBig = new TypedArrayDict[descriptor.dataType](
+          sizeOfShape(descriptor.shape) + 1);
+      await promise_rejects_js(
+          t, TypeError,
+          mlContext.createConstantTensor(descriptor, inputDataTooBig));
+    } catch (error) {
+      if (error instanceof RangeError) {
+        return;  // Skip test when dataType is too big.
+      } else {
+        throw error;
+      }
+    }
+  }, `${testName} / ${descriptor.dataType} / source data too big`);
+
+  promise_test(async t => {
+    if (!isConstantTensorSupported) {
+      return;
+    }
+
+    try {
+      const inputDataTooSmall = new TypedArrayDict[descriptor.dataType](
+          sizeOfShape(descriptor.shape) - 1);
+      await promise_rejects_js(
+          t, TypeError,
+          mlContext.createConstantTensor(descriptor, inputDataTooSmall));
+    } catch (error) {
+      if (error instanceof RangeError) {
+        return;  // Skip test when dataType is too big.
+      } else {
+        throw error;
+      }
+    }
+  }, `${testName} / ${descriptor.dataType} / source data too small`);
+};
+
+/**
+ * Same as above, but expect constant tensor creation to fail.
+ * @param {String} testName - The name of the test operation.
+ * @param {MLOperandDescriptor} descriptor - The intended operand specs.
+ */
+const testCreateConstantTensorFails = (testName, descriptor) => {
+  let mlContext;
+
+  promise_setup(async () => {
+    try {
+      mlContext = await navigator.ml.createContext(contextOptions);
+    } catch (error) {
+      throw new AssertionError(
+          `Unable to create context for ${variant} variant. ${error}`);
+    }
+  });
+
+  promise_test(async t => {
+    await promise_rejects_js(
+        t, TypeError,
+        mlContext.createConstantTensor(
+            descriptor,
+            new TypedArrayDict[descriptor.dataType](
+                sizeOfShape(descriptor.shape))));
+  }, `${testName} / ${descriptor.dataType}`);
+};
+
+promise_test(async t => {
+  const tensorDescriptor = {
+    dataType: 'int32',
+    shape: [(context.opSupportLimits().maxTensorByteLength + 1) / 4],
+    writable: true,
+  };
+  await promise_rejects_js(
+    t, TypeError, context.createTensor(tensorDescriptor));
+}, `create too large tensor byte length that exceeds limit`);
+
+/**
  * Asserts the tensor data in MLTensor matches expected.
  * @param {MLContext} mlContext - The context used to create the tensor.
  * @param {MLTensor} mlTensor - The tensor to read and compare data.
@@ -164,44 +296,46 @@ const testWriteTensor = (testName) => {
     }
   });
 
-  promise_test(async () => {
-    const tensorDescriptor = {
-      dataType: 'int32',
-      shape: [4],
-      readable: true,
-      writable: true,
-    };
-    const tensorByteLength = sizeOfDescriptor(tensorDescriptor);
+  if ('SharedArrayBuffer' in globalThis) {
+    promise_test(async () => {
+      const tensorDescriptor = {
+        dataType: 'int32',
+        shape: [4],
+        readable: true,
+        writable: true,
+      };
+      const tensorByteLength = sizeOfDescriptor(tensorDescriptor);
 
-    // Required to use SharedArrayBuffer.
-    assert_true(
-        self.crossOriginIsolated,
-        'The page is served with COOP and COEP, it should be cross-origin-isolated.');
+      // Required to use SharedArrayBuffer.
+      assert_true(
+          self.crossOriginIsolated,
+          'The page is served with COOP and COEP, it should be cross-origin-isolated.');
 
-    let arrayBuffer = new ArrayBuffer(tensorByteLength);
-    let arrayBufferView = new Int32Array(arrayBuffer);
-    arrayBufferView.fill(7);
+      let arrayBuffer = new ArrayBuffer(tensorByteLength);
+      let arrayBufferView = new Int32Array(arrayBuffer);
+      arrayBufferView.fill(7);
 
-    let sharedArrayBuffer = new SharedArrayBuffer(tensorByteLength);
-    let sharedArrayBufferView = new Int32Array(sharedArrayBuffer);
-    sharedArrayBufferView.fill(7);
+      let sharedArrayBuffer = new SharedArrayBuffer(tensorByteLength);
+      let sharedArrayBufferView = new Int32Array(sharedArrayBuffer);
+      sharedArrayBufferView.fill(7);
 
-    const tensors = await Promise.all([
-      mlContext.createTensor(tensorDescriptor),
-      mlContext.createTensor(tensorDescriptor),
-      mlContext.createTensor(tensorDescriptor),
-      mlContext.createTensor(tensorDescriptor)
-    ]);
+      const tensors = await Promise.all([
+        mlContext.createTensor(tensorDescriptor),
+        mlContext.createTensor(tensorDescriptor),
+        mlContext.createTensor(tensorDescriptor),
+        mlContext.createTensor(tensorDescriptor)
+      ]);
 
-    mlContext.writeTensor(tensors[0], arrayBuffer);
-    mlContext.writeTensor(tensors[2], arrayBufferView);
-    mlContext.writeTensor(tensors[1], sharedArrayBuffer);
-    mlContext.writeTensor(tensors[3], sharedArrayBufferView);
+      mlContext.writeTensor(tensors[0], arrayBuffer);
+      mlContext.writeTensor(tensors[2], arrayBufferView);
+      mlContext.writeTensor(tensors[1], sharedArrayBuffer);
+      mlContext.writeTensor(tensors[3], sharedArrayBufferView);
 
-    await Promise.all(tensors.map(async (tensor) => {
-      assert_tensor_data_equals(mlContext, tensor, arrayBufferView);
-    }));
-  }, `${testName} / write with different kinds of buffers`);
+      await Promise.all(tensors.map(async (tensor) => {
+        assert_tensor_data_equals(mlContext, tensor, arrayBufferView);
+      }));
+    }, `${testName} / write with different kinds of buffers`);
+  }
 
   promise_test(async () => {
     const tensorDescriptor = {
@@ -411,6 +545,7 @@ const testDispatchTensor = (testName) => {
   const shape = [3, 5];
   let inputs = {};
   let outputs = {};
+  let isConstantTensorSupported = false;
   promise_setup(async () => {
     try {
       mlContext = await navigator.ml.createContext(contextOptions);
@@ -418,6 +553,22 @@ const testDispatchTensor = (testName) => {
       throw new AssertionError(
           `Unable to create context for ${variant} variant. ${e}`);
     }
+
+    // Check if WebNN has constant tensor support.
+    try {
+      await mlContext.createConstantTensor(
+          {
+            dataType: 'float32',
+            shape: [1],
+          },
+          new Float32Array([0xAA]));
+      isConstantTensorSupported = true;
+    } catch (error) {
+      if (error.name !== 'NotSupportedError') {
+        throw error;
+      }
+    }
+
     // Construct a simple graph: A = B + C, with two outputs.
     const builder = new MLGraphBuilder(mlContext);
     const tensorDescriptor = {
@@ -1076,6 +1227,98 @@ const testDispatchTensor = (testName) => {
         mlContext, dispatchOutputs['output1'],
         new Float32Array(sizeOfShape(shape)).fill(3));
   }, `${testName} / same name diff outputs tensors destroy`);
+
+  promise_test(async () => {
+    if (!isConstantTensorSupported) {
+      return;
+    }
+
+    let constantTensor = await mlContext.createConstantTensor(
+        {
+          dataType: 'float32',
+          shape: shape,
+        },
+        new Float32Array(sizeOfShape(shape)).fill(3.0));
+
+    const builder = new MLGraphBuilder(mlContext);
+    const lhsConstantOperand = builder.constant(constantTensor);
+    const rhsConstantOperand = builder.constant(constantTensor);
+    const outputOperand = builder.add(lhsConstantOperand, rhsConstantOperand);
+    const graphWithOnlyConstants =
+        await builder.build({'output': outputOperand});
+
+    const outputTensor = await mlContext.createTensor(
+        getDescriptorFromTensor(outputs['output1']));
+
+    // Output = LHS + RHS = 3 + 3 = 6
+    mlContext.dispatch(graphWithOnlyConstants, {}, {'output': outputTensor});
+
+    await assert_tensor_data_equals(
+        mlContext, outputTensor,
+        new Float32Array(sizeOfShape(shape)).fill(6.0));
+  }, `${testName} / same constant same graph`);
+
+  promise_test(async () => {
+    if (!isConstantTensorSupported) {
+      return;
+    }
+
+    const rhsConstantTensor = await mlContext.createConstantTensor(
+        {
+          dataType: 'float32',
+          shape: shape,
+        },
+        new Float32Array(sizeOfShape(shape)).fill(3.0));
+
+    const lhsInputOperandDesc = {dataType: 'float32', shape};
+
+    let graphWithConstants;
+    {
+      const builder = new MLGraphBuilder(mlContext);
+      const lhsOperand = builder.input('lhs', lhsInputOperandDesc);
+      const rhsConstantOperand = builder.constant(rhsConstantTensor);
+      const outputOperand = builder.sub(lhsOperand, rhsConstantOperand);
+      graphWithConstants = await builder.build({'output': outputOperand});
+    }
+
+    const lhsTensor =
+        await mlContext.createTensor(getDescriptorFromTensor(inputs['lhs']));
+    mlContext.writeTensor(
+        lhsTensor, new Float32Array(sizeOfShape(shape)).fill(5.0));
+
+    const outputTensor = await mlContext.createTensor(
+        getDescriptorFromTensor(outputs['output1']));
+
+    // Output = LHS - RHS = 5 - 3 = 2
+    mlContext.dispatch(
+        graphWithConstants, {
+          'lhs': lhsTensor,
+        },
+        {'output': outputTensor});
+
+    // Create another graph reusing the same constants.
+    {
+      const builder = new MLGraphBuilder(mlContext);
+      const lhsOperand = builder.input('lhs', lhsInputOperandDesc);
+      const rhsConstantOperand = builder.constant(rhsConstantTensor);
+      const outputOperand = builder.sub(lhsOperand, rhsConstantOperand);
+      graphWithConstants = await builder.build({'output': outputOperand});
+    }
+
+    mlContext.writeTensor(
+        lhsTensor, new Float32Array(sizeOfShape(shape)).fill(4.0));
+
+    // Output = LHS - RHS = 4 - 3 = 1
+    mlContext.dispatch(
+        graphWithConstants, {
+          'lhs': lhsTensor,
+        },
+        {'output': outputTensor});
+
+    await assert_tensor_data_equals(
+        mlContext, outputTensor,
+        new Float32Array(sizeOfShape(shape)).fill(1.0));
+  }, `${testName} / same constant multiple graphs`);
 };
 
 if (navigator.ml) {
@@ -1090,6 +1333,14 @@ if (navigator.ml) {
     dataType: 'int32',
     shape: [kMaxUnsignedLong, kMaxUnsignedLong, kMaxUnsignedLong]
   });
+
+  testCreateConstantTensor('createConstant', {dataType: 'int32', shape: [4]});
+  testCreateConstantTensor(
+      'createConstant', {dataType: 'uint8', shape: [3, 2, 4]});
+
+  testCreateConstantTensorFails(
+      'createConstantFailsEmptyDimension',
+      {dataType: 'int32', shape: [2, 0, 3]});
 
   testDestroyTensor('destroyTwice');
   testReadTensor('read');

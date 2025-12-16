@@ -1,1 +1,15 @@
 /external/wpt/infrastructure/testdriver/actions/ @ringking0
+
+# CCS
+/blink/web_tests/external/wpt/content-security-policy/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/cookies/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/cookies/partitioned-cookies/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/fetch/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/fetch/corb/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/fetch/cross-origin-resource-policy/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/permissions-policy/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/referrer-policy/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/service-workers/cache-storage/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/upgrade-insecure-requests/ @chenjiadong @fredranking @aohui
+/blink/web_tests/external/wpt/webauthn/ @shawshank
+/blink/web_tests/virtual/url-non-special/ @chenjiadong @fredranking @aohui

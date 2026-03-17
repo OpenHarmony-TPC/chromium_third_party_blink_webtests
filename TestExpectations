@@ -9421,3 +9421,6 @@ crbug.com/418362694 [ Linux ] external/wpt/geolocation/enabled-by-permission-pol
 
 # Skipped due to feature implementation in progress
 crbug.com/420393952 external/wpt/html/semantics/permission-element/quirks-mode-no-height-is-still-bounded.tentative.html [ Failure Skip ]
+
+# WebAudio configurable render quantum failing test
+crbug.com/486238126 webaudio/WaveShaper/waveshaper-rendersizehint.html [ Crash ]

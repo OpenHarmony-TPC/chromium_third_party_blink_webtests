@@ -8498,3 +8498,6 @@ crbug.com/378566925 [ Win ] external/wpt/storage-access-api/requestStorageAccess
 
 # Gardener 2024-11-18
 crbug.com/379516106 [ Mac14 Debug ] external/wpt/css/css-overflow/scrollbar-large-scale-in-iframe.html [ Pass Timeout ]
+
+# WebAudio configurable render quantum failing test
+crbug.com/486238126 webaudio/WaveShaper/waveshaper-rendersizehint.html [ Crash ]
